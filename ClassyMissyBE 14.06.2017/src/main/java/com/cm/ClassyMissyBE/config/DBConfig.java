@@ -29,22 +29,22 @@ public class DBConfig {
 
 
 @Bean(name="dataSoure")	
-public DataSource getDataSource()
+public DataSource getH2DataSource()
 {
-	System.out.println("-----Data Source Creation------");
+	System.out.println("-----Starting of the method getH2DataSource------");
 	DriverManagerDataSource dataSource=new DriverManagerDataSource();
 	dataSource.setDriverClassName("org.h2.Driver");
 	dataSource.setUrl("jdbc:h2:~/test");
 	dataSource.setUsername("User1");
 	dataSource.setPassword("User1");
-	System.out.println("-----Data Source Created------");
+	System.out.println("-----Data Source Creation------");
 	return dataSource;
 	
 }
 @Bean(name="sessionFactory")
 public SessionFactory getSessionFactory(DataSource dataSource)
 {
-	System.out.println("------Hibernate Properties--------");
+	System.out.println("------Hibernate Properties --------");
 	Properties prop=new Properties();
 	prop.setProperty("hibernate.hbm2ddl.auto", "update");
 	prop.put("hibernate.show_sql", "true");//optional
@@ -53,21 +53,21 @@ public SessionFactory getSessionFactory(DataSource dataSource)
 	
 	System.out.println("------Local SessionFactory Builder Object Created--------");
 	LocalSessionFactoryBuilder sessionBuilder=new LocalSessionFactoryBuilder(dataSource);
-	sessionBuilder.setProperties(prop);
+	sessionBuilder.addProperties(prop);
 	System.out.println("------Factory Builder Object Created--------");
 	sessionBuilder.addAnnotatedClass(Category.class);
 	System.out.println("------Session Factory Object Creation----");
 	SessionFactory sessionFactory=sessionBuilder.buildSessionFactory();
-	System.out.println("------Session Factory Object Creation----");
+	System.out.println("------Session Factory Object Created----");
 	return sessionFactory;
 	
 }
 @Autowired
-@Bean(name="txManager")
+@Bean(name="transactionManager")
 public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory)
 {
 	System.out.println("------Transaction Manager Object Creation------");
-	HibernateTransactionManager transactionManager=new HibernateTransactionManager();
+	HibernateTransactionManager transactionManager=new HibernateTransactionManager(sessionFactory);
 	System.out.println("------Transaction Manager Object Created------");
 	return transactionManager;
 	
@@ -76,7 +76,7 @@ public HibernateTransactionManager getTransactionManager(SessionFactory sessionF
 @Bean(name="categoryDAO")
 public CategoryDAO getCategoryDAO(SessionFactory sessionFactory)
 {
-	System.out.println("-----Transaction Manager Object Creation-----");
+	System.out.println("-----CategoryDAO Object Creation-----");
 	return new CategoryDAO(sessionFactory);
 	
 }

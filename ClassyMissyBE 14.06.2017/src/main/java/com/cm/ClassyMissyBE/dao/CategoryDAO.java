@@ -14,8 +14,8 @@ public CategoryDAO(SessionFactory sessionFactory)
 {
 this.sessionFactory=sessionFactory;
 }
-public void insertCategory(Category category)
+/*public void insertCategory(Category category)
 {
 	sessionFactory.getCurrentSession().saveOrUpdate(category);
-}
+}*/
 }

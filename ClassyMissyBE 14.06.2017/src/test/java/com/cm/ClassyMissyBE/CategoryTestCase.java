@@ -12,10 +12,10 @@ public static void main(String[] args) {
 	context.refresh();
 	
 	//Inserting a Category Object
-	CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
+	/*CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
 	Category category=new Category();
 	category.setCatname("Ring");
 	category.setCatdesc("Ring is Good Qulity and less amount");
-	categoryDAO.insertCategory(category);
+	categoryDAO.insertCategory(category);*/
 }
 }
