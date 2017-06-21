@@ -1,6 +1,7 @@
 package com.classmiss.ClassyMissyBackend.config;
 
 	import java.util.Properties;
+
 	import javax.sql.DataSource;
 	import org.hibernate.SessionFactory;
 	import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,8 @@ package com.classmiss.ClassyMissyBackend.config;
 	import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 	import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.classmiss.ClassyMissyBackend.dao.CategoryDAO;
-import com.classmiss.ClassyMissyBackend.model.Category;
+import com.classmiss.ClassyMissyBackend.dao.*;
+import com.classmiss.ClassyMissyBackend.model.*;
 
 	
 
@@ -53,6 +54,7 @@ import com.classmiss.ClassyMissyBackend.model.Category;
 			sessionBuilder.addProperties(prop);
 			System.out.println("---Factory Builder Object Created---");
 			sessionBuilder.addAnnotatedClass(Category.class);
+			sessionBuilder.addAnnotatedClass(Supplier.class);
 			System.out.println("Session Factory Object Creation");
 			SessionFactory sessionFactory=sessionBuilder.buildSessionFactory();
 			System.out.println("Session Factory Object Created");
@@ -74,6 +76,15 @@ import com.classmiss.ClassyMissyBackend.model.Category;
 		{
 			System.out.println("-- CategoryDAO Object Creation--");
 			return new CategoryDAO(sessionFactory);
+		}
+		
+		
+		@Autowired
+		@Bean(name="supplierDAO")
+		public SupplierDAO getSupplierDAO(SessionFactory sessionFactory)
+		{
+		System.out.println("---SupplierDAO Object Creation----");
+		return new SupplierDAO(sessionFactory);
 		}
 	}
 
