@@ -46,8 +46,11 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-
+		<dependency>
+			<groupId>com.classmiss</groupId>
+			<artifactId>ClassyMissyBackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>ClassyMissyFrontend</finalName>
