@@ -1,8 +1,12 @@
 package com.classmiss.ClassyMissyFrontend.controller;
 
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,13 +19,15 @@ public class CategoryController {
 @Autowired
 CategoryDAO categoryDAO;
 @RequestMapping("/Category")
-public String showCategoryPage()
+public String showCategoryPage(Model m)
 {
 	System.out.println("---Category Page Displaying-----");
+	List<Category> list=categoryDAO.getCategoryDetails();
+    m.addAttribute("catdetail",list);
 	return "Category";
 }
 @RequestMapping(value="/AddCategory",method=RequestMethod.POST)
-public String addCategory(@RequestParam("catname") String catname,@RequestParam("catdesc") String catdesc)
+public String addCategory(@RequestParam("catname") String catname,@RequestParam("catdesc") String catdesc,Model m)
 {
 	System.out.println("---Add Category Starting-----");
 	
