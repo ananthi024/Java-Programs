@@ -1,0 +1,5 @@
+package com.classmiss.ClassyMissyBackend.dao;
+
+public class UserDetailsDAO {
+
+}

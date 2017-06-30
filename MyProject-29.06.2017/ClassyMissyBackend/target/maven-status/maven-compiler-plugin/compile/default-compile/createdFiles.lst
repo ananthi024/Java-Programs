@@ -1,0 +1,12 @@
+com\classmiss\ClassyMissyBackend\model\Supplier.class
+com\classmiss\ClassyMissyBackend\dao\UserDetailsDAO.class
+com\classmiss\ClassyMissyBackend\model\Category.class
+com\classmiss\ClassyMissyBackend\config\DBConfig.class
+com\classmiss\ClassyMissyBackend\dao\CategoryDAO.class
+com\classmiss\ClassyMissyBackend\model\Product.class
+com\classmiss\ClassyMissyBackend\MyBean.class
+com\classmiss\ClassyMissyBackend\MyConfiguration.class
+com\classmiss\ClassyMissyBackend\model\UserDetails.class
+com\classmiss\ClassyMissyBackend\App.class
+com\classmiss\ClassyMissyBackend\dao\ProductDAO.class
+com\classmiss\ClassyMissyBackend\dao\SupplierDAO.class

@@ -1,0 +1,5 @@
+package com.classmiss.ClassyMissyBackend.model;
+
+public class UserDetails {
+
+}

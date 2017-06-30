@@ -1,0 +1,48 @@
+package com.classmiss.ClassyMissyBackend;
+
+import java.util.List;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.classmiss.ClassyMissyBackend.dao.CategoryDAO;
+import com.classmiss.ClassyMissyBackend.model.Category;
+
+public class UserTestCase 
+{
+	public static void main(String arg[])
+	{
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+		
+		context.scan("com.mobitel.MobitelBackend");
+		
+		context.refresh();
+		
+		// Inserting a Category Object.
+		CategoryDAO categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
+		
+		//Insertion TestCase
+		
+		Category category=new Category();
+		
+		category.setCatname("WIFIMobile");
+		category.setCatdesc("This Mobile is WIFI Enabled. You can Enjoy Internet");
+
+		categoryDAO.insertUpdateCategory(category);		
+		System.out.println("Category Inserted");
+		
+
+	
+	//Deletion TestCase
+			/*User user=new User();
+			userDAO.deleteUser(user);
+			System.out.println("The User Deleted");*/
+					
+			
+			//Update the User
+			
+			/*User user=new User();
+			user.setUemail("abi123@gmail.com");
+			userDAO.insertUpdateUser(user);
+			System.out.println("The User Details Updated");*/
+}
+}

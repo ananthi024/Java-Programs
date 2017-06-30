@@ -1,0 +1,93 @@
+package com.classmiss.ClassyMissyFrontend.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.classmiss.ClassyMissyBackend.dao.SupplierDAO;
+
+@Controller
+public class SupplierController1 {
+	
+	
+		@Autowired
+		SupplierDAO
+		
+		@Autowired
+		ProductDAO productDAO;
+		
+		@RequestMapping("/Product")
+		public String showProduct(Model m)
+		{
+			
+			
+			Product product=new Product();
+			
+			m.addAttribute("catlist",this.getCatList());
+			m.addAttribute("product",product);
+			
+			List<Product> prodlist=productDAO.getProductDetails();
+			m.addAttribute("prodlist",prodlist);
+			
+			
+			return "Product";
+		}
+		
+		@RequestMapping(value="/InsertProduct",method=RequestMethod.POST)
+		public String insertProduct(@ModelAttribute("product") Product product,Model m)
+		{
+			System.out.println("---Product Inserted---");
+			productDAO.insertUpdateProduct(product);	
+			
+			List<Product> prodlist=productDAO.getProductDetails();
+			m.addAttribute("prodlist",prodlist);
+			
+			return "Product";
+		}
+		
+		@RequestMapping(value="/updateProduct/{prodid}")
+		public String updateProduct(@PathVariable("prodid")int prodid,Model m)
+		{
+			
+			Product product=productDAO.getProduct(prodid);
+			m.addAttribute("product",product);
+			m.addAttribute("catlist",this.getCatList());
+			List<Product> prodlist=productDAO.getProductDetails();
+			m.addAttribute("prodlist",prodlist);
+			
+			return "redirect:/Product";
+		}
+		
+		@RequestMapping(value="/deleteProduct/{prodid}")
+		public String deleteProduct(@PathVariable("prodid")int prodid,Model m)
+		{
+			
+			Product product=productDAO.getProduct(prodid);
+			productDAO.deleteProduct(product);
+			
+			Product product1=new Product();
+			m.addAttribute("product",product1);
+			m.addAttribute("catlist",this.getCatList());
+			List<Product> prodlist=productDAO.getProductDetails();
+			m.addAttribute("prodlist",prodlist);
+			
+			return "Product";
+		}
+		
+		public LinkedHashMap<Integer,String> getCatList()
+		{
+			List<Category> list=categoryDAO.getCategoryDetails();
+			
+			LinkedHashMap<Integer,String> catlist=new LinkedHashMap<Integer,String>();
+			
+			for(Category cat:list)
+			{
+				catlist.put(cat.getCatid(),cat.getCatname());
+			}
+			
+			return catlist;
+		}
+		
+		
+		
+		
+	}
+}

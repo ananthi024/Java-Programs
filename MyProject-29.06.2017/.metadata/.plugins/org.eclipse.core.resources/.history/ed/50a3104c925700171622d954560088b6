@@ -1,0 +1,28 @@
+package com.classmiss.ClassyMissyBackend.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class UserDetails {
+	@Id
+@GeneratedValue
+	
+String uname;
+String password;
+String cusname;
+String role;
+String uemail;
+String uaddr;
+String umobileno;
+boolean enabled;
+
+
+}
+
+
+
+

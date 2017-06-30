@@ -1,0 +1,44 @@
+package com.classmiss.ClassyMissyBackend;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.classmiss.ClassyMissyBackend.dao.UserDetailsDAO;
+import com.classmiss.ClassyMissyBackend.model.UserDetails;
+
+public class UserDetailsTestCase {
+public static void main(String[] args) {
+	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+	context.scan("com.classmiss.ClassyMissyBackend");
+	context.refresh();
+	
+	//Inserted a UserDetails
+	UserDetailsDAO userDetailsDAO=(UserDetailsDAO)context.getBean("userdetailsDAO");
+	
+	//Inserting TestCase
+	
+	UserDetails userDetails=new UserDetails();
+	userDetails.setCusname("Sanjana");
+	userDetails.setUname("Abi");
+	userDetails.setPassword("12345");
+	userDetails.setUaddr("Chennai");
+	userDetails.setUmobileno("9786744209");
+	userDetails.setRole("User & Admin");
+	userDetails.setEnabled(true);
+	userDetails.setUemail("abi@gmail.com");
+	
+	System.out.println("UserDetails Inserted");
+	
+	//Deletion TestCase
+			/*User user=new User();
+			userDAO.deleteUser(user);
+			System.out.println("The User Deleted");*/
+					
+			
+			//Update the User
+			
+			/*User user=new User();
+			user.setUemail("abi123@gmail.com");
+			userDAO.insertUpdateUser(user);
+			System.out.println("The User Details Updated");*/
+}
+}

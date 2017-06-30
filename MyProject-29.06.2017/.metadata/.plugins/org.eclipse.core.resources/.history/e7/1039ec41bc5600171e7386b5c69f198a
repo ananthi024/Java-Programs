@@ -1,0 +1,39 @@
+package com.classmiss.ClassyMissyBackend.dao;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.classmiss.ClassyMissyBackend.model.*;
+
+@Repository("userDAO")
+public class UserDetailsDAO 
+{
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public UserDetailsDAO(SessionFactory sessionFactory)
+	{
+		this.sessionFactory=sessionFactory;
+	}
+	
+	@Transactional
+	public void insertUpdateUser(User user)
+	{
+		Session session=sessionFactory.getCurrentSession();
+		session.saveOrUpdate(user);
+	}
+	
+
+
+	/*
+	 * @Transactional public void deleteUserDetails(UserDetails userDetails) {
+	 * sessionFactory.getCurrentSession().delete(userDetails); }
+	 */
+}

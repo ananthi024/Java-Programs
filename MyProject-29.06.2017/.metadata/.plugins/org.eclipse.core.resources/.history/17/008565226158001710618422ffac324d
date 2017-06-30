@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html"%>
+
+<html>
+<head>
+<title>Navbar Example</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body style="background-color:#f5cba7">
+<form action="gh">
+<!-- Starting The Navbar Code -->
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+
+<div class="navbar-header">
+<a class="navbar-brand" rel="home" href="#" title="The Exprssion of Pearl">
+                <img style="max-width:50px; margin-top: -7px;"
+                     src="E:\New folder\cma2.jpg">
+            </a>
+<a class="navbar-brand" href="Home.jsp"></a>
+</div>
+
+
+<ul class="nav navbar-nav">
+<li class="active"><a href="Home.jsp"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+<li><a href="AboutUs">AboutUs</a></li>
+<li><a href="ContactUs.jsp">ContactUs</a></li>
+ <li class="dropdown"><a href="#" class="dropdown-toggle" 
+ data-toggle="dropdown" role="button" aria-haspopup="true" 
+ aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul></li>      
+<!-- Search Button -->
+<form class="navbar-form navbar-left form-horizontal" role="Search">
+<div class="input-group">
+<input type="text" class="search-box" placeholder="Search">
+<button type="submit" class="btn">
+<span class="glyphicon glyphicon-search"></span></button></div></form>
+ 
+<div class="nav navbar-nav navbar-right">
+<li><a href="SignIn.jsp"><span class="glyphicon glyphicon-share"></span>SignIn </a></li>
+<li><a href="Register.jsp"><span class="glyphicon glyphicon-user"></span>SignUp </a></li>
+
+</div>
+</ul>
+</div>
+</nav>
+</form>
+</body>
+</html>

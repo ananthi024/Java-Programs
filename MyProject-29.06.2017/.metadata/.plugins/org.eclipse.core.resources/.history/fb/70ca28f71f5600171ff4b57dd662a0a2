@@ -1,0 +1,40 @@
+package com.classmiss.ClassyMissyBackend;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+import com.classmiss.ClassyMissyBackend.dao.ProductDAO;
+import com.classmiss.ClassyMissyBackend.model.Product;
+
+public class ProductTestCase {
+public static void main(String[] args) {
+		
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+		
+		context.scan("com.classmiss.ClassyMissyBackend");
+		context.refresh();
+		
+
+		//Inserting a Product Object.
+		ProductDAO productDAO=(ProductDAO)context.getBean("productDAO");
+		
+		//Insertion TestCase
+		
+		Product product=new Product();
+				
+		product.setProdname("Diamond Ring");
+		product.setProddesc("All Design Type of Ring Available");
+		product.setQuantity(10);
+		product.setPrice(7000);
+		
+		System.out.println("Product Inserted");
+		
+		/*Product product=productDAO.getProduct(1);
+		System.out.println("Product Name:"+product.getProdname());
+		System.out.println("Product Description:"+product.getProddesc());
+		System.out.println("Product Price:"+product.getPrice());
+		System.out.println("Product Quantity:"+product.getQuantity());
+		System.out.println("Category ID:"+product.getCatid());
+		System.out.println("Supplier ID:"+product.getSupid());*/
+}
+}
+

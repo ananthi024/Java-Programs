@@ -1,0 +1,53 @@
+package com.classmiss.ClassyMissyBackend;
+
+import java.util.List;
+
+
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+import com.classmiss.ClassyMissyBackend.dao.UserDetailsDAO;
+import com.classmiss.ClassyMissyBackend.model.UserDetails;
+
+
+
+public class UserTestCase 
+{
+	public static void main(String arg[])
+	{
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+		
+		context.scan("com.classmiss.ClassyMissyBackend");
+		
+		context.refresh();
+		
+		// Inserting a Category Object.
+		UserDetailsDAO userDetailsDAO=(UserDetailsDAO)context.getBean("userdetailsDAO");
+		
+		//Insertion TestCase
+		
+		UserDetails userDetails=new UserDetails();
+		
+		userDetails.setCusname("");
+		userDetails.setEnabled(true);
+
+		userDetailsDAO.insertUpdateUserDetails(userDetails);		
+		System.out.println("UserDetails Inserted");
+		
+
+	
+	//Deletion TestCase
+			/*User user=new User();
+			userDAO.deleteUser(user);
+			System.out.println("The User Deleted");*/
+					
+			
+			//Update the User
+			
+			/*User user=new User();
+			user.setUemail("abi123@gmail.com");
+			userDAO.insertUpdateUser(user);
+			System.out.println("The User Details Updated");*/
+}
+}

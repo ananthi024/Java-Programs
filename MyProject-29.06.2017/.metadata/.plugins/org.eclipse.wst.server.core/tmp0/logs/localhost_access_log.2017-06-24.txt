@@ -1,0 +1,6 @@
+127.0.0.1 - - [24/Jun/2017:22:50:20 -0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [24/Jun/2017:22:50:34 -0800] "GET /ClassyMissyFrontend/ HTTP/1.1" 200 2090
+0:0:0:0:0:0:0:1 - - [24/Jun/2017:22:51:13 -0800] "GET /ClassyMissyFrontend/ HTTP/1.1" 200 2090
+0:0:0:0:0:0:0:1 - - [24/Jun/2017:22:51:20 -0800] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [24/Jun/2017:22:53:03 -0800] "GET /ClassyMissyFrontend/Category HTTP/1.1" 200 4089
+0:0:0:0:0:0:0:1 - - [24/Jun/2017:22:54:49 -0800] "POST /ClassyMissyFrontend/UpdateCategory HTTP/1.1" 400 1011

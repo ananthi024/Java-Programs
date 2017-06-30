@@ -1,0 +1,16 @@
+package com.classmiss.ClassyMissyBackend.dao;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository("userdetailsDAO")
+public class UserDetailsDAO {
+@Autowired
+SessionFactory sessionFactory;
+public UserDetailsDAO(SessionFactory sessionFactory)
+{
+	this.sessionFactory=sessionFactory;
+	
+}
+}

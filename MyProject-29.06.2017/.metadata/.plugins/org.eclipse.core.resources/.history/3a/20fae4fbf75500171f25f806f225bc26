@@ -1,0 +1,15 @@
+package com.classmiss.ClassyMissyBackend;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class ProductTestCase {
+public static void main(String[] args) {
+		
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+		
+		context.scan("com.classmiss.ClassyMissyBackend");
+		
+		context.refresh();
+}
+}
+

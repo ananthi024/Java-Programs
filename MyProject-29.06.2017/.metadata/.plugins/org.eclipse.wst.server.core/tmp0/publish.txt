@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Jun 29 14:13:48 GMT-08:00 2017
+org.eclipse.jst.j2ee.server\:/binary\:C\:\\Users\\Ananhi\\.m2\\repository\\org\\springframework\\spring-web\\4.3.5.RELEASE\\spring-web-4.3.5.RELEASE.jar=WEB-INF/lib/spring-web-4.3.5.RELEASE.jar
+org.eclipse.jst.j2ee.server\:ClassyMissyBackend=WEB-INF/lib/ClassyMissyBackend-0.0.1-SNAPSHOT.jar
